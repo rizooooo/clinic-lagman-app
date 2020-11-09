@@ -1,0 +1,1 @@
+export { default as PatientDB } from './patient-db';
