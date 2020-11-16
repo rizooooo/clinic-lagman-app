@@ -1,7 +1,7 @@
 import PouchDB from 'pouchdb'
 
 const localDB = new PouchDB('patients');
-const remoteDb = new PouchDB('http://34.215.127.221:5984/patients', {
+const remoteDb = new PouchDB('https://prodapi.wcvi.net/patients', {
     auth:
     {
         username: 'admin',
@@ -36,11 +36,17 @@ const PatientDB = {
     ADD_PATIENT: async (patient) => {
         return await localDB.put({ ...patient, _id: new Date().getTime().toString() });
     },
+    UPDATE_PATIENT: async (patient) => {
+        return await localDB.put({ ...patient, _rev: patient._rev });
+    },
     GET_PATIENTS: async () => {
-        return localDB.allDocs({
+        return await localDB.allDocs({
             include_docs: true,
             attachments: true,
         })
+    },
+    FIND_PATINET: async (id) => {
+        return await localDB.get(id);
     },
     SUBSCRIBE: (func) => {
         return dbSync.on('change', func);

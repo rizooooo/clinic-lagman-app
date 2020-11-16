@@ -7,3 +7,5 @@ export { default as Header } from './header/header.component';
 export { default as FormBuilder } from './form-builder/form-builder.component'; 
 
 export { default as Card } from './card/card.component'; 
+
+export { default as Paginate } from './pagination/pagination.component'; 

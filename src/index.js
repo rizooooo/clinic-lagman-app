@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import './../node_modules/bootswatch/dist/cerulean/bootstrap.min.css';
-import './assets/styles/global.css';
+import './../node_modules/bootswatch/dist/flatly/bootstrap.min.css';
+import './assets/styles/global.scss';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,4 +16,4 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+serviceWorker.register();

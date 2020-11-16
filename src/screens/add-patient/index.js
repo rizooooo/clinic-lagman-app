@@ -33,9 +33,15 @@ const AddPatient = () => {
 
     return (
         <Container>
-            <Row form className='justify-content-center my-5'>
-                <Col md={5}>
-                    <h4 className='font-weight-bold mb-3'>Add a Patient</h4>
+             <Row className='py-3 justify-content-center'>
+                    <Col xs={12} sm={12} md={10}>
+                        <h3 className='text-center font-weight-bold'>Lagman Medical Clinic</h3>
+                        <p className='lead text-center'>Add a Patient</p>
+
+                    </Col>
+                </Row>
+            <Row form className='justify-content-center my-2'>
+                <Col xs={12} sm={10} md={7} lg={5} xl={5}>
                     <FormBuilder
                         handler={formHandler}
                         config={FormSchema()}

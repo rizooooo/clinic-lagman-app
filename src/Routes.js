@@ -1,8 +1,9 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { RouteLayout } from './core/shared'
-import { HeaderLayout } from './layouts'
-import { AddPatient, ListPatient } from './screens'
+import { FullscreenLayout, HeaderLayout, HeaderSidebarLayout } from './layouts'
+import { PatientModule } from './module'
+import { AddPatient, ListPatient, SignIn, ViewPatient } from './screens'
 
 const Routes = () => {
     // return (
@@ -14,16 +15,26 @@ const Routes = () => {
     return (
         <Switch>
             <RouteLayout
-                exact
-                path={'/'}
-                layout={HeaderLayout}
-                component={ListPatient}
+                path={['/patient']}
+                layout={HeaderSidebarLayout}
+                component={PatientModule}
             />
             <RouteLayout
-                path={'/add'}
+                exact
+                path={'/sign-in', '/'}
+                layout={FullscreenLayout}
+                component={SignIn}
+            />
+            {/* <RouteLayout
+                path={'/patient/add'}
                 layout={HeaderLayout}
                 component={AddPatient}
             />
+            <RouteLayout
+                path={'/patient/:id'}
+                layout={HeaderLayout}
+                component={ViewPatient}
+            /> */}
         </Switch>
     )
 }
